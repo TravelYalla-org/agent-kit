@@ -9,6 +9,7 @@
   },
   "homepage": "https://travelyalla.com",
   "license": "MIT",
+  "privacyPolicyUrl": "https://travelyalla.com/en-WW/privacy-policy",
   "repository": "https://github.com/TravelYalla-org/agent-kit",
   "keywords": ["travel", "flights", "hotels", "booking", "egypt", "saudi-arabia"]
 }
