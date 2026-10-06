@@ -32,7 +32,7 @@
         "brandColor": "#0E70CE",
         "brandColorDark": "#7ED321",
         "composerIcon": "./assets/icon.png",
-        "logo": "./assets/logo.png"
+        "logo": "./assets/icon.png"
       },
       "onboardingSkill": "./skills/get-started/SKILL.md",
       "review": {

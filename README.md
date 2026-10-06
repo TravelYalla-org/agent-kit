@@ -45,7 +45,7 @@ plugins/travelyalla/
   .claude-plugin/plugin.json        Claude manifest
   mcp.json                          MCP server for ChatGPT / Codex (streamable-http)
   .mcp.json                         MCP server for Claude (http)
-  assets/                           icon.png (512×512), logo.png
+  assets/                           icon.png (512×512, also the logo; the portal requires square images)
   skills/
     get-started/                    Onboarding: what TravelYalla can and can't do
     find-flights/                   One-way, round-trip and multi-city search, compare, baggage, booking link
@@ -64,7 +64,7 @@ The MCP tools behind the skills are `search-destinations`, `search-flights`, `ge
 
 ## Publish to the ChatGPT and Codex plugin directory
 
-1. Run `scripts/build-chatgpt-zip.sh`. It writes `dist/travelyalla-<version>.zip`, with `plugin.json` at the zip's root. The portal only accepts an update whose `name` matches the existing plugin (`dev-6abd1a1153b48191bd48f35602a19139`, from when it was first created as a connector), so the script sets that name in the zip's copy only.
+1. Run `scripts/build-chatgpt-zip.sh`. It writes `dist/travelyalla-<version>-workspace.zip`, which updates the existing plugin. That plugin was first created from the MCP connector, so the portal accepts an update only when the zip uses its generated name (`dev-6abd1a1153b48191bd48f35602a19139`) and a `.app.json` that references exactly its connector. The script applies both to the zip only. For a public directory submission ("With MCP"), run `scripts/build-chatgpt-zip.sh directory` instead, which keeps `mcp.json`.
 2. Upload the zip under **Upload new version** in the plugin submission portal. The listing, starter prompts, translations and the 5 positive and 3 negative review test cases are read from `plugin.json`.
 3. Verify the `travelyalla.com` domain, add screenshots, and submit for review.
 
