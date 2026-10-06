@@ -45,7 +45,7 @@ plugins/travelyalla/
   .claude-plugin/plugin.json        Claude manifest
   mcp.json                          MCP server for ChatGPT / Codex (streamable-http)
   .mcp.json                         MCP server for Claude (http)
-  assets/                           icon.png (512×512, also the logo; the portal requires square images)
+  assets/                           icon.png (256×256, also the logo; the portal requires square images)
   skills/
     get-started/                    Onboarding: what TravelYalla can and can't do
     find-flights/                   One-way, round-trip and multi-city search, compare, baggage, booking link
