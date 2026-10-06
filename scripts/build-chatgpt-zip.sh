@@ -47,7 +47,11 @@ import json, sys
 path, name = sys.argv[1], sys.argv[2]
 manifest = json.load(open(path))
 manifest["name"] = name
-manifest["extensions"]["com.openai"]["apps"] = "./.app.json"
+openai = manifest["extensions"]["com.openai"]
+openai["apps"] = "./.app.json"
+# Review test cases are for directory submission and must be tied to exactly
+# one bundled MCP server; a connector reference doesn't count as one.
+openai.pop("review", None)
 with open(path, "w") as f:
     json.dump(manifest, f, indent=2, ensure_ascii=False)
     f.write("\n")
