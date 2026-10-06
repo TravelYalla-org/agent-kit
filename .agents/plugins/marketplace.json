@@ -1,0 +1,20 @@
+{
+  "name": "travelyalla",
+  "interface": {
+    "displayName": "TravelYalla"
+  },
+  "plugins": [
+    {
+      "name": "travelyalla",
+      "source": {
+        "source": "local",
+        "path": "./plugins/travelyalla"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Travel"
+    }
+  ]
+}

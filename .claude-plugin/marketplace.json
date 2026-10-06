@@ -1,0 +1,20 @@
+{
+  "name": "travelyalla",
+  "owner": {
+    "name": "TravelYalla",
+    "email": "reservation@travelyalla.com",
+    "url": "https://travelyalla.com"
+  },
+  "metadata": {
+    "description": "TravelYalla plugins for AI agents: live flight and hotel search across Egypt, Saudi Arabia and worldwide."
+  },
+  "plugins": [
+    {
+      "name": "travelyalla",
+      "source": "./plugins/travelyalla",
+      "description": "Find cheap flights and hotels with live TravelYalla prices, then book on travelyalla.com.",
+      "category": "travel",
+      "keywords": ["travel", "flights", "hotels", "booking", "egypt", "saudi-arabia"]
+    }
+  ]
+}

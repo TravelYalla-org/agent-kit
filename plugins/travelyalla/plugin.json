@@ -1,0 +1,105 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "travelyalla",
+  "version": "1.0.0",
+  "description": "Find cheap flights and hotels with live TravelYalla prices across Egypt, Saudi Arabia and worldwide, then book on travelyalla.com.",
+  "author": {
+    "name": "TravelYalla",
+    "email": "reservation@travelyalla.com",
+    "url": "https://travelyalla.com"
+  },
+  "homepage": "https://travelyalla.com",
+  "repository": "https://github.com/TravelYalla-org/agent-kit",
+  "keywords": ["travel", "flights", "hotels", "booking", "egypt", "saudi-arabia"],
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "TravelYalla",
+        "shortDescription": "Find cheap flights & hotels",
+        "longDescription": "TravelYalla finds live flight and hotel prices inside your chat, for trips across Egypt, Saudi Arabia and worldwide.\n\nSearch one-way, round-trip and multi-city flights and compare them by price, stops, airline, departure time and baggage. Search hotels by city or hotel name and narrow them by star rating, guest score, price and distance from the city centre. Plan a whole trip with flights and a matching stay in one currency, or find the cheapest day to fly within a date range.\n\nAsk in English or Arabic. Prices follow your nationality and currency, and every result links straight to travelyalla.com to book.",
+        "developerName": "TravelYalla",
+        "category": "Travel",
+        "capabilities": ["Interactive", "Read"],
+        "websiteURL": "https://travelyalla.com",
+        "supportURL": "https://travelyalla.com/en-WW/contact-us",
+        "privacyPolicyURL": "https://travelyalla.com/en-WW/privacy-policy",
+        "termsOfServiceURL": "https://travelyalla.com/en-WW/terms-and-conditions",
+        "defaultPrompt": [
+          "Find the cheapest round-trip flights from Cairo to Dubai next weekend",
+          "Show me top-rated hotels in Dubai for 2 adults next weekend",
+          "Plan a 5-day trip from Riyadh to Cairo in November"
+        ],
+        "brandColor": "#0E70CE",
+        "brandColorDark": "#7ED321",
+        "composerIcon": "./assets/icon.png",
+        "logo": "./assets/logo.png"
+      },
+      "onboardingSkill": "./skills/get-started/SKILL.md",
+      "review": {
+        "test_cases": {
+          "positive": [
+            {
+              "description": "Round-trip flight search",
+              "prompt": "Find round-trip flights from Dubai to London leaving next Friday and returning on Sunday for 1 adult.",
+              "tools_triggered": "search-flights",
+              "expected_behavior": "Searches DXB to LHR and back on the resolved dates and lists the cheapest itineraries with airline, times, stops and price, plus a travelyalla.com booking link."
+            },
+            {
+              "description": "Baggage for a chosen flight",
+              "prompt": "Find one-way flights from Cairo to Jeddah next Monday, then tell me the baggage allowance for the cheapest one.",
+              "tools_triggered": "search-flights, get-flight-details",
+              "expected_behavior": "Searches CAI to JED, picks the cheapest itinerary and reports its checked-baggage allowance from the flight details."
+            },
+            {
+              "description": "Hotel search by city",
+              "prompt": "Show me top-rated hotels in Dubai for 2 adults next weekend.",
+              "tools_triggered": "search-destinations, search-hotels",
+              "expected_behavior": "Resolves Dubai to its city code, searches hotels for the weekend and lists hotels with stars, guest score, nightly and total price, and booking links."
+            },
+            {
+              "description": "Hotel details",
+              "prompt": "Find 5-star hotels in Cairo for 2 nights from the 10th of next month and tell me the check-in time and facilities of the best-rated one.",
+              "tools_triggered": "search-destinations, search-hotels, get-hotel-details",
+              "expected_behavior": "Searches Cairo hotels, keeps 5-star results, then reports the top-rated hotel's check-in time and facilities from its details."
+            },
+            {
+              "description": "Trip plan with flights and hotel",
+              "prompt": "Plan a 5-day trip from Riyadh to Cairo in the first week of next month for 2 adults.",
+              "tools_triggered": "search-flights, search-destinations, search-hotels",
+              "expected_behavior": "Finds round-trip flights RUH to CAI and hotels matching the arrival and departure dates in the same currency, totals the estimated cost and gives both booking links."
+            }
+          ],
+          "negative": [
+            {
+              "description": "Payment inside the chat",
+              "prompt": "Book the cheapest flight and charge it to my credit card."
+            },
+            {
+              "description": "Managing an existing booking",
+              "prompt": "Cancel my TravelYalla booking for next week."
+            },
+            {
+              "description": "Live flight status",
+              "prompt": "Is flight MS777 delayed right now?"
+            }
+          ]
+        },
+        "commerce": false,
+        "commerce_description": "The plugin searches flights and hotels only. Booking and payment happen on travelyalla.com through the links it returns."
+      },
+      "publication": {
+        "release_notes": "Initial release: live flight and hotel search, flexible-date flight search and trip planning, in English and Arabic.",
+        "translations": {
+          "ar-SA": {
+            "subtitle": "ابحث عن أرخص الرحلات والفنادق",
+            "description": "يعرض TravelYalla أسعار الطيران والفنادق المباشرة داخل المحادثة، لرحلاتك في مصر والسعودية وحول العالم. ابحث عن رحلات ذهاب فقط أو ذهاب وعودة أو متعددة المدن وقارنها حسب السعر وعدد التوقفات وشركة الطيران ووقت المغادرة والأمتعة. ابحث عن الفنادق حسب المدينة أو اسم الفندق وصفّها حسب النجوم وتقييم الضيوف والسعر والقرب من وسط المدينة. اسأل بالعربية أو الإنجليزية، وكل نتيجة تنقلك مباشرة إلى travelyalla.com للحجز."
+          },
+          "ar-EG": {
+            "subtitle": "ابحث عن أرخص الرحلات والفنادق",
+            "description": "يعرض TravelYalla أسعار الطيران والفنادق المباشرة داخل المحادثة، لرحلاتك في مصر والسعودية وحول العالم. ابحث عن رحلات ذهاب فقط أو ذهاب وعودة أو متعددة المدن وقارنها حسب السعر وعدد التوقفات وشركة الطيران ووقت المغادرة والأمتعة. ابحث عن الفنادق حسب المدينة أو اسم الفندق وصفّها حسب النجوم وتقييم الضيوف والسعر والقرب من وسط المدينة. اسأل بالعربية أو الإنجليزية، وكل نتيجة تنقلك مباشرة إلى travelyalla.com للحجز."
+          }
+        }
+      }
+    }
+  }
+}

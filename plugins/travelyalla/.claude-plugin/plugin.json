@@ -1,0 +1,13 @@
+{
+  "name": "travelyalla",
+  "version": "1.0.0",
+  "description": "Find cheap flights and hotels with live TravelYalla prices across Egypt, Saudi Arabia and worldwide, then book on travelyalla.com.",
+  "author": {
+    "name": "TravelYalla",
+    "email": "reservation@travelyalla.com",
+    "url": "https://travelyalla.com"
+  },
+  "homepage": "https://travelyalla.com",
+  "repository": "https://github.com/TravelYalla-org/agent-kit",
+  "keywords": ["travel", "flights", "hotels", "booking", "egypt", "saudi-arabia"]
+}

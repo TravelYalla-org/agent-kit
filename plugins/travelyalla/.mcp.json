@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "travelyalla": {
+      "type": "http",
+      "url": "https://mcp.travelyalla.com/mcp"
+    }
+  }
+}
