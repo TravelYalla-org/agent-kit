@@ -1,7 +1,7 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "travelyalla",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Find cheap flights and hotels with live TravelYalla prices across Egypt, Saudi Arabia and worldwide, then book on travelyalla.com.",
   "author": {
     "name": "TravelYalla",
@@ -84,6 +84,7 @@
             }
           ]
         },
+        "demo_recording_url": "https://www.youtube.com/watch?v=FtXHEzlAGYA",
         "commerce": false,
         "commerce_description": "The plugin searches flights and hotels only. Booking and payment happen on travelyalla.com through the links it returns."
       },
