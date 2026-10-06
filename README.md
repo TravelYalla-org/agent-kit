@@ -64,8 +64,8 @@ The MCP tools behind the skills are `search-destinations`, `search-flights`, `ge
 
 ## Publish to the ChatGPT and Codex plugin directory
 
-1. Zip `plugins/travelyalla/`, with `plugin.json` at the zip's root.
-2. Upload the zip in the plugin submission portal. The listing, starter prompts, translations and the 5 positive and 3 negative review test cases are read from `plugin.json`.
+1. Run `scripts/build-chatgpt-zip.sh`. It writes `dist/travelyalla-<version>.zip`, with `plugin.json` at the zip's root. The portal only accepts an update whose `name` matches the existing plugin (`dev-6abd1a1153b48191bd48f35602a19139`, from when it was first created as a connector), so the script sets that name in the zip's copy only.
+2. Upload the zip under **Upload new version** in the plugin submission portal. The listing, starter prompts, translations and the 5 positive and 3 negative review test cases are read from `plugin.json`.
 3. Verify the `travelyalla.com` domain, add screenshots, and submit for review.
 
 The server is search-only and needs no sign-in, so no reviewer credentials are required.
