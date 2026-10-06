@@ -8,6 +8,7 @@
     "url": "https://travelyalla.com"
   },
   "homepage": "https://travelyalla.com",
+  "license": "MIT",
   "repository": "https://github.com/TravelYalla-org/agent-kit",
   "keywords": ["travel", "flights", "hotels", "booking", "egypt", "saudi-arabia"]
 }
