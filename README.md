@@ -33,7 +33,7 @@ Clone this repo. The ChatGPT desktop app reads `.agents/plugins/marketplace.json
 
 ### Claude.ai or any MCP client, without the skills
 
-Add a custom connector with the URL `https://mcp.travelyalla.com/mcp`.
+Add a custom connector with the URL `https://mcp.travelyalla.com/mcp`. Free Claude plans allow one custom connector; Pro, Max, Team and Enterprise allow more. Step-by-step guides: [ChatGPT](https://mcp.travelyalla.com/docs/chatgpt), [Claude](https://mcp.travelyalla.com/docs/claude).
 
 ## What's inside
 
@@ -65,7 +65,18 @@ The MCP tools behind the skills are `search-destinations`, `search-flights`, `ge
 ## Publish to the ChatGPT and Codex plugin directory
 
 1. Run `scripts/build-chatgpt-zip.sh`. It writes `dist/travelyalla-<version>-workspace.zip`, which updates the existing plugin. That plugin was first created from the MCP connector, so the portal accepts an update only when the zip uses its generated name (`dev-6abd1a1153b48191bd48f35602a19139`) and a `.app.json` that references exactly its connector. The script applies both to the zip only. For a public directory submission ("With MCP"), run `scripts/build-chatgpt-zip.sh directory` instead, which keeps `mcp.json`.
-2. Upload the zip under **Upload new version** in the plugin submission portal. The listing, starter prompts, translations and the 5 positive and 3 negative review test cases are read from `plugin.json`.
-3. Verify the `travelyalla.com` domain, add screenshots, and submit for review.
+2. Upload the zip under **Upload new version** in the plugin submission portal. The listing, starter prompts, translations, the 5 positive and 3 negative review test cases and the video walkthrough (`review.demo_recording_url`) are read from `plugin.json`.
+3. Verify the MCP domain and submit for review. The portal fetches `https://mcp.travelyalla.com/.well-known/openai-apps-challenge`, which the MCP server serves from the `OPENAI_APPS_CHALLENGE` env var.
 
 The server is search-only and needs no sign-in, so no reviewer credentials are required.
+
+## Publish to the Claude directory
+
+Claude's directory reads this repo from GitHub, so there is no ZIP. It follows `main` automatically after approval.
+
+1. In [claude.ai/directory/manage](https://claude.ai/directory/manage), choose **Submit new → Plugin bundle**, with repository `TravelYalla-org/agent-kit` and plugin path `plugins/travelyalla`.
+2. Select **Validate**. The listing's privacy link comes from `privacyPolicyUrl` in `.claude-plugin/plugin.json`. The validator warns that Claude Code ignores this field, which is expected.
+3. Answer the data-handling questions to match the [privacy policy](https://travelyalla.com/en-WW/privacy-policy): search details (route, dates, travellers, nationality, country) go to TravelYalla and its airline and hotel suppliers, and the plugin isn't intended for under-18s.
+4. Separately, choose **Submit new → MCP connector** with `https://mcp.travelyalla.com/mcp`, so claude.ai users can add TravelYalla from the directory without Claude Code.
+
+The MCP endpoint must stay open (no `MCP_TOKEN`): neither directory can send a shared key.
