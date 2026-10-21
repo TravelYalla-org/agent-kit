@@ -1,6 +1,6 @@
 {
   "name": "travelyalla",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "Find cheap flights and hotels with live TravelYalla prices across Egypt, Saudi Arabia and worldwide, then book on travelyalla.com.",
   "author": {
     "name": "TravelYalla",
@@ -9,6 +9,7 @@
   },
   "homepage": "https://travelyalla.com",
   "license": "MIT",
+  "icon": "./assets/icon.png",
   "privacyPolicyUrl": "https://travelyalla.com/en-WW/privacy-policy",
   "repository": "https://github.com/TravelYalla-org/agent-kit",
   "keywords": ["travel", "flights", "hotels", "booking", "egypt", "saudi-arabia"]
