@@ -1,6 +1,7 @@
 {
   "name": "travelyalla",
-  "version": "1.1.2",
+  "displayName": "TravelYalla",
+  "version": "1.1.3",
   "description": "Find cheap flights and hotels with live TravelYalla prices across Egypt, Saudi Arabia and worldwide, then book on travelyalla.com.",
   "author": {
     "name": "TravelYalla",

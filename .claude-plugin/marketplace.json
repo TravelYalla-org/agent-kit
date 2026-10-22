@@ -11,6 +11,7 @@
   "plugins": [
     {
       "name": "travelyalla",
+      "displayName": "TravelYalla",
       "source": "./plugins/travelyalla",
       "description": "Find cheap flights and hotels with live TravelYalla prices, then book on travelyalla.com.",
       "category": "travel",
